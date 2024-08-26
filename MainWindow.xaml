@@ -1,0 +1,35 @@
+﻿<Window x:Class="SidebarExample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="随机内容生成器" Height="500" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Sidebar -->
+        <Border Grid.Column="0" Background="#2c3e50">
+            <StackPanel Margin="10">
+                <TextBlock Text="内容生成器" FontWeight="Bold" FontSize="18" Margin="0,0,0,20" Foreground="White"/>
+                <Button Content="生成随机颜色" Margin="0,5" Click="GenerateColor_Click"/>
+                <Button Content="生成随机名言" Margin="0,5" Click="GenerateQuote_Click"/>
+                <Button Content="生成随机形状" Margin="0,5" Click="GenerateShape_Click"/>
+                <Button Content="生成随机折线图" Margin="0,5" Click="GenerateLineChart_Click"/>
+                <Button Content="清除内容" Margin="0,20,0,5" Click="ClearContent_Click"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Main Content Area -->
+        <Grid Grid.Column="1" x:Name="MainContent" Background="White">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock x:Name="QuoteText" FontSize="18" TextWrapping="Wrap" MaxWidth="400" TextAlignment="Center"/>
+                <Rectangle x:Name="ColorRectangle" Width="200" Height="100" Margin="0,20"/>
+                <Canvas x:Name="ShapeCanvas" Width="200" Height="200"/>
+                <Border x:Name="ChartBorder" Width="400" Height="200" BorderBrush="Black" BorderThickness="1" Margin="0,20">
+                    <Canvas x:Name="ChartCanvas" Width="400" Height="200"/>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
